@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generator Skill</title>
+    <style>
+        body {
+            background: #222;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .kotak-mesin {
+            background: #444;
+            width: 350px;
+            margin: 50px auto;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            background: orange;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        img {
+            margin-top: 15px;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kotak-mesin">
+        <h1>Generator Skill Unik</h1>
+
+        <p>
+            Masukkan namamu untuk
+            melihat skill tersembunyimu!
+        </p>
+
+        <input
+            type="text"
+            id="namainput"
+            placeholder="Ketik namamu..."
+        >
+
+        <br>
+
+        <button onclick="cekSkill()">
+            Cek Sekarang
+        </button>
+
+        <h2 id="hasilSKill">
+            Skill belum terdeteksi...
+        </h2>
+
+        <img
+            id="fotoSkill"
+            src="https://placehold.co/200x200?text=?"
+            alt="Foto Skill"
+        >
+    </div>
+
+    <script>
+        function cekSkill() {
+
+            let nama = document.getElementById("namainput").value;
+
+            if (nama.trim() === "") {
+                alert("Masukkan namamu terlebih dahulu!");
+                return;
+            }
+
+            let daftarSkill = [
+                "Biji Ketapang",
+                "Kacung",
+                "Pro",
+                "Kroco",
+                "Bot"
+            ];
+
+            let daftarGambar = [
+                "https://placehold.co/200x200?text=Biji+Ketapang",
+                "https://placehold.co/200x200?text=Kacung",
+                "https://placehold.co/200x200?text=Pro",
+                "https://placehold.co/200x200?text=Kroco",
+                "https://placehold.co/200x200?text=Bot"
+            ];
+
+            let acak = Math.floor(
+                Math.random() * daftarSkill.length
+            );
+
+            let skillPilihan = daftarSkill[acak];
+            let gambarPilihan = daftarGambar[acak];
+
+            document.getElementById("hasilSKill").innerText =
+                nama + ", skill unikmu: " + skillPilihan;
+
+            document.getElementById("fotoSkill").src =
+                gambarPilihan;
+        }
+    </script>
+
+</body>
+</html>
